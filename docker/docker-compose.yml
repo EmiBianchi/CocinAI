@@ -1,15 +1,33 @@
+version: '3.8'
+
 services:
-    estructura:
-        image: estructuraflask:v1.0.0
-        networks:
-          - mired
-        ports:
-          - 5000:5000
-        environment:
-          - FLASK_CONTEXT=${FLASK_CONTEXT}
-          - SQLALCHEMY_TRACK_MODIFICATIONS=${SQLALCHEMY_TRACK_MODIFICATIONS}  
-          - SQLALCHEMY_RECORD_QUERIES=${SQLALCHEMY_RECORD_QUERIES}
-          - PROD_DATABASE_URI=${PROD_DATABASE_URI}
+  recipes_backend:
+    build:
+      context: ../
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_CONTEXT=${FLASK_CONTEXT}
+      - SQLALCHEMY_TRACK_MODIFICATIONS=${SQLALCHEMY_TRACK_MODIFICATIONS}  
+      - SQLALCHEMY_RECORD_QUERIES=${SQLALCHEMY_RECORD_QUERIES}
+      - PROD_DATABASE_URI=${PROD_DATABASE_URI}
+
+  recipes_postgres:
+    image: postgres:15.4-bullseye
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mired
+
 networks:
-    mired:
-        external: true
+  mired:
+    external: true
+
+volumes:
+  postgres_data:

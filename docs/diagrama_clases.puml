@@ -1,0 +1,44 @@
+@startuml
+class User{
+    -int: id
+    +string: name
+    -string: email
+    +searchRecipes(List<Ingredient>)
+    +filterRecipesDiet(Diet)
+    +saveFavoriteRecipe(Recipe)
+}
+class Recipe{
+    -int: id
+    -string: title
+    -string: instructions
+    -int: preparationTime
+}
+
+class Ingredient {
+    -int: id
+    -string: name
+    -string: unitMeasurement
+}
+
+class Diet {
+    -int: id
+    +string: name
+}
+
+class RecipeIngredient {
+    -int: quantity
+}
+
+class RecipeDiet {
+    -string: detail
+}
+
+User "1" -- "*" Recipe :favorite
+User "1" -- "*" Diet: preferences
+Recipe "" -- "" Ingredient : contain
+Recipe "" -- "" Diet : isFor
+RecipeIngredient "1" -- "*" Recipe:"recipe"
+RecipeIngredient "1" -- "*" Ingredient : "Ingredient"
+RecipeDiet "1" --"*" Recipe : "recipe"
+RecipeDiet "1" -- "*" Diet: "diet"
+@enduml
