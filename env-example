@@ -1,4 +1,0 @@
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-SQLALCHEMY_RECORD_QUERIES = True
-DEV_DATABASE_URI='postgresql+psycopg2://user:recipes123@recipes_postgres:5432/recipes_db'
-PROD_DATABASE_URI='postgresql://user:recipes123@recipes_postgres:5432/recipes_db'

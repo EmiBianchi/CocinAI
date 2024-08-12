@@ -35,10 +35,10 @@ class RecipeDiet {
 
 User "1" -- "*" Recipe :favorite
 User "1" -- "*" Diet: preferences
-Recipe "" -- "" Ingredient : contain
-Recipe "" -- "" Diet : isFor
+Recipe "*" -- "*" Ingredient : contain
+Recipe "*" -- "*" Diet : isFor
 RecipeIngredient "1" -- "*" Recipe:"recipe"
 RecipeIngredient "1" -- "*" Ingredient : "Ingredient"
 RecipeDiet "1" --"*" Recipe : "recipe"
-RecipeDiet "1" -- "*" Diet: "diet"
+RecipeDiet "1" -- "*" Diet: "diet"
 @enduml
