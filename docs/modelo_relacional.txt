@@ -1,0 +1,77 @@
+// Ejecutar en: https://www.dbdiagram.io/d
+
+// Tabla Usuario
+Table User {
+  id int [pk, increment]
+  name varchar
+  email varchar
+  password varchar unique
+}
+
+// Tabla Receta
+Table Recipe {
+  id int [pk, increment]
+  title varchar
+  instructions text
+  prep_time int
+}
+
+// Tabla Ingrediente
+Table Ingredient {
+  id int [pk, increment]
+  name varchar
+  unit_measurement varchar
+}
+
+// Tabla Dieta
+Table Diet {
+  id int [pk, increment]
+  name varchar
+}
+
+// Tabla intermedia para la relación muchos a muchos entre Usuario y Receta (favoritos)
+Table User_Favorite_Recipe {
+  user_id int
+  recipe_id int
+  indexes {
+    (user_id, recipe_id) [pk]
+  }
+}
+
+// Tabla intermedia para la relación muchos a muchos entre Usuario y Dieta (preferencias)
+Table User_Diet {
+  user_id int
+  diet_id int
+  indexes {
+    (user_id, diet_id) [pk]
+  }
+}
+
+// Tabla intermedia para la relación muchos a muchos entre Receta e Ingrediente
+Table Recipe_Ingredient {
+  recipe_id int
+  ingredient_id int
+  quantity float
+  indexes {
+    (recipe_id, ingredient_id) [pk]
+  }
+}
+
+// Tabla intermedia para la relación muchos a muchos entre Receta y Dieta
+Table Recipe_Diet {
+  recipe_id int
+  diet_id int
+  indexes {
+    (recipe_id, diet_id) [pk]
+  }
+}
+
+// Definición de relaciones
+Ref: User_Favorite_Recipe.user_id > User.id
+Ref: User_Favorite_Recipe.recipe_id > Recipe.id
+Ref: User_Diet.user_id > User.id
+Ref: User_Diet.diet_id > Diet.id
+Ref: Recipe_Ingredient.recipe_id > Recipe.id
+Ref: Recipe_Ingredient.ingredient_id > Ingredient.id
+Ref: Recipe_Diet.recipe_id > Recipe.id
+Ref: Recipe_Diet.diet_id > Diet.id
