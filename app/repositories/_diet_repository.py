@@ -23,6 +23,6 @@ class DietRepository:
         # Retorna una lista con todas las instancias de Diet.
     
     def find_by_name(self, name: str) -> Diet:
-       return db.session.query(Diet).filter(Diet.name == name).one_or_none()
+        return db.session.query(Diet).filter(Diet.name == name).one_or_none()
         # Realiza una consulta en la base de datos para buscar una Diet por su nombre.
         # Retorna la instancia encontrada o None si no se encuentra ningún resultado.

@@ -1,7 +1,7 @@
 from typing import List, Type
 from app.models import User
 from app import db
-from app.models.user_data import UserData
+from app.models import UserData, Recipe
 
 class UserRepository:
     """
@@ -53,6 +53,31 @@ class UserRepository:
     def find_by_email(self, email: str) -> User:
         #busqueda por like
         return db.session.query(User).filter(User.email == email).one_or_none()
+    
+    def search_recipes(self, ingredients):
+        # Método para buscar recetas que contengan los ingredientes dados
+        results = Recipe.query.filter(Recipe.ingredients.any(db.name.in_(ingredients))).all()
+        # Filtrar recetas donde alguno de los ingredientes coincida con los dados y devolver todos los resultados
+        return results
+
+    def filter_recipes_diet(self, diet):
+        # Método para filtrar recetas según la dieta preferida
+        results = Recipe.query.filter(Recipe.diets.any(name=diet)).all()
+        # Filtrar recetas que coincidan con la dieta dada y devolver todos los resultados
+        return results
+    
+    def get_favorite_recipes(self, user: User) -> List[Recipe]:
+        return user.favorite_recipes
+
+    def add_favorite_recipe(self, user: User, recipe: Recipe) -> None:
+        if recipe not in user.favorite_recipes:
+            user.favorite_recipes.append(recipe)
+            db.session.commit()
+
+    def remove_favorite_recipe(self, user: User, recipe: Recipe) -> None:
+        if recipe in user.favorite_recipes:
+            user.favorite_recipes.remove(recipe)
+            db.session.commit()
 
     def __update_data(self, entity: User, data: UserData):
         entity.data.firstname = data.firstname

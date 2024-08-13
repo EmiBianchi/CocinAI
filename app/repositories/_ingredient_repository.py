@@ -13,10 +13,10 @@ class IngredientRepository:
         return ingredient  # Retorna el ingrediente creado.
 
     def get_by_id(ingredient_id: int) -> Ingredient:
-       return Ingredient.query.get(ingredient_id) # Realiza una consulta para obtener un ingrediente por su ID. Retorna la instancia encontrada o None si no se encuentra.
+        return Ingredient.query.get(ingredient_id) # Realiza una consulta para obtener un ingrediente por su ID. Retorna la instancia encontrada o None si no se encuentra.
 
     def get_all() -> list[Ingredient]:
-       return Ingredient.query.all()
+        return Ingredient.query.all()
         # Realiza una consulta para obtener todos los ingredientes almacenados en la base de datos.
         # Retorna una lista con todas las instancias de Ingredient.
 
