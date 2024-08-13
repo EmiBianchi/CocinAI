@@ -1,4 +1,3 @@
-"""
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
@@ -11,9 +10,8 @@ app.config.from_object(Config)  # Cargar configuración desde Config
 db = SQLAlchemy(app)
 
 # Importar modelos
-from app.models import User, Recipe, Ingredient, Diet, UserFavoriteRecipe, UserDiet, RecipeIngredient, RecipeDiet
+from app.models import User, Recipe, Ingredient, Diet, UserFavoriteRecipe, RecipeIngredient, AuditMixin, Profile, Relations, Role, SoftDeleteMixin, UserData
 
 # Importar rutas (si tienes)
 # from app.routes import main as main_routes
 # app.register_blueprint(main_routes)
-"""

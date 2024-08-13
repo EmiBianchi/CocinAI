@@ -18,5 +18,3 @@ class RecipeRepository:
     def all(self) -> List["Recipe"]:
         recipes = db.session.query("Recipe").all()
         return recipes
-    
-    
