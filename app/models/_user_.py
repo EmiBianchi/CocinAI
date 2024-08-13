@@ -50,18 +50,6 @@ class User(db.Model, AuditMixin):
         if role in self.roles:  # Comprobar si el rol está asociado al usuario
             self.roles.remove(role)  # Remover el rol de la lista de roles del usuario
 
-    def search_recipes(self, ingredients):
-        # Método para buscar recetas que contengan los ingredientes dados
-        results = Recipe.query.filter(Recipe.ingredients.any(db.name.in_(ingredients))).all()
-        # Filtrar recetas donde alguno de los ingredientes coincida con los dados y devolver todos los resultados
-        return results
-
-    def filter_recipes_diet(self, diet):
-        # Método para filtrar recetas según la dieta preferida
-        results = Recipe.query.filter(Recipe.diets.any(name=diet)).all()
-        # Filtrar recetas que coincidan con la dieta dada y devolver todos los resultados
-        return results
-
     def save_favorite_recipe(self, recipe):
         # Método para guardar una receta como favorita
         if recipe not in self.favorite_recipes:  # Comprobar si la receta no está ya en favoritas
