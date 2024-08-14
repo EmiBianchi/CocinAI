@@ -3,9 +3,9 @@ from .user_data import UserData
 from .profile import Profile
 from .soft_delete import SoftDeleteMixin
 from .audit_mixin import AuditMixin
-from ._user_ import User
-from ._recipe_ import Recipe
-from ._ingredient_ import Ingredient
-from ._diet_ import Diet
-from ._user_favorite_recipe_ import UserFavoriteRecipe
-from ._recipe_ingredient_ import RecipeIngredient
+from .user import User
+from .recipe import Recipe
+from .ingredient import Ingredient
+from .diet import Diet
+from .user_favorite_recipe import UserFavoriteRecipe
+from .recipe_ingredient import RecipeIngredient

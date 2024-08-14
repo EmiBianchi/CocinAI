@@ -1,7 +1,6 @@
-import pytest
 from app import db
-from models.user import User
-from models.recipe import Recipe
+from app.models import User, Recipe
+import pytest
 
 @pytest.fixture
 def user():

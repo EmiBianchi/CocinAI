@@ -1,4 +1,7 @@
 from app import db
+from dataclasses import dataclass
+
+@dataclass (init=False, repr=True, eq=True)
 
 class RecipeIngredient(db.Model):
     __tablename__ = 'recipe_ingredient'  # Nombre de la tabla en la base de datos

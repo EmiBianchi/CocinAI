@@ -5,6 +5,7 @@ from app.models.soft_delete import SoftDeleteMixin  # Importar el mixin para eli
 
 # Definición de la clase Profile que hereda de SoftDeleteMixin, AuditMixin y db.Model
 @dataclass(init=False, repr=True, eq=True)  # Decorador que permite crear automáticamente métodos de inicialización, representación y comparación
+
 class Profile(SoftDeleteMixin, AuditMixin, db.Model):
     __tablename__ = 'profiles'  # Nombre de la tabla en la base de datos
 

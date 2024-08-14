@@ -6,6 +6,7 @@ from app.models.relations import users_roles
 from app import db
 
 @dataclass(init=False, repr=True, eq=True)  # Decorador para crear una clase de datos sin inicializador automático
+
 class Role(db.Model):  # Definición de la clase Role que hereda de db.Model
     __tablename__ = 'roles'  # Nombre de la tabla en la base de datos
 

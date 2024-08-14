@@ -50,4 +50,4 @@ class ProfileTestCase(unittest.TestCase):
         profile = Profile(name=self.NAME)
         profile_service.save(profile)
         profiles = profile_service.all()
-        self.assertGreaterEqual(len(profiles), 1)        
+        self.assertGreaterEqual(len(profiles), 1)

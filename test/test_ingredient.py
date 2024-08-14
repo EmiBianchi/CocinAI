@@ -1,4 +1,5 @@
-from models.ingredient import Ingredient
+from app.models import Ingredient
+from app import db
 
 def test_create_ingredient():
     # Prueba para verificar que se puede crear un ingrediente

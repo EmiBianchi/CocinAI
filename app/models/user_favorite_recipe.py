@@ -1,4 +1,7 @@
 from app import db
+from dataclasses import dataclass
+
+@dataclass (init=False, repr=True, eq=True)
 
 class UserFavoriteRecipe(db.Model):
     __tablename__ = 'user_favorite_recipe'  # Nombre de la tabla en la base de datos

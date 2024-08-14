@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.mapping import UserFavoriteRecipeSchema, ResponseSchema 
+from app.mapping import UserFavoriteRecipeSchema, ResponseSchema
 from app.services.response_message import ResponseBuilder
 from app.services.user_favorite_recipe_services import UserFavoriteRecipeService
 

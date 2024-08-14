@@ -1,5 +1,5 @@
-from app.models._recipe_ import Recipe
-from app.models._ingredient_ import Ingredient
+from app.models import Recipe, Ingredient
+from app import pytest, db
 
 @pytest.fixture
 def ingredient():

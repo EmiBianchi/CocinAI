@@ -1,3 +1,17 @@
+"""
+
+CocinAI: Tu asistente personal de cocina inteligente.
+
+Descubre una nueva forma de cocinar con CocinAI, la aplicación que 
+transforma tus ingredientes en deliciosas recetas adaptadas a tus preferencias.
+Desde opciones veganas hasta platillos keto, CocinAI te permite buscar recetas por 
+ingredientes, filtrar según tus necesidades dietéticas y guardartus favoritas con un solo clic.
+
+Con CocinAI, cada comida es una oportunidad para explorar, innovar y disfrutar 
+de la cocina como nunca antes. ¡Cocina inteligentemente, saborea la diferencia!
+
+"""
+
 # estructura-flask
 Estructura básica en framework Flask
 

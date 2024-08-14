@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.mapping import RecipeSchema, ResponseSchema 
+from app.mapping import RecipeSchema, ResponseSchema
 from app.services.response_message import ResponseBuilder
 from app.services.recipe_services import RecipeService
 

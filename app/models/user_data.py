@@ -8,6 +8,7 @@ from app.models.audit_mixin import AuditMixin
 from app.models.soft_delete import SoftDeleteMixin
 
 @dataclass(init=False, repr=True, eq=True)  # Decorador para generar métodos especiales automáticamente
+
 class UserData(SoftDeleteMixin, db.Model):  # Clase UserData que hereda de SoftDeleteMixin y db.Model
     __tablename__ = 'users_data'  # Nombre de la tabla en la base de datos
 

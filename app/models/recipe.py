@@ -1,5 +1,8 @@
 from app import db
 from app.models import RecipeIngredient, AuditMixin
+from dataclasses import dataclass
+
+@dataclass (init=False, repr=True, eq=True)
 
 # Definición del modelo Recipe
 class Recipe(db.Model, AuditMixin):

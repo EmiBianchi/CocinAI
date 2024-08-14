@@ -1,5 +1,8 @@
 from app import db
 from app.models import AuditMixin
+from dataclasses import dataclass
+
+@dataclass (init=False, repr=True, eq=True)
 
 # Definición del modelo Ingredient que representa un ingrediente en la base de datos
 class Ingredient(db.Model, AuditMixin):

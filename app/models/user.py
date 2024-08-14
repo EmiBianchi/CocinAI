@@ -1,6 +1,9 @@
 from app.models import Recipe, UserData, AuditMixin
+from dataclasses import dataclass 
 from app import db
 from app.models.relations import users_roles
+
+@dataclass (init=False, repr=True, eq=True)
 
 # Definición del modelo User que representa un usuario en la base de datos
 class User(db.Model, AuditMixin):
