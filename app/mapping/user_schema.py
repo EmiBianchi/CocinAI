@@ -1,4 +1,4 @@
-from app.models.user import User
+from app.models._user_ import User
 from marshmallow import validate, fields, Schema, post_load
 
 class UserSchema(Schema):
