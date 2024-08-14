@@ -8,4 +8,3 @@ from ._recipe_ingredient_schema import RecipeIngredientSchema
 from ._user_favorite_recipe_schema import UserFavoriteRecipeSchema
 from .user_schema import UserSchema
 from .user_data_schema import UserDataSchema
-from .response_schema import ResponseSchema
