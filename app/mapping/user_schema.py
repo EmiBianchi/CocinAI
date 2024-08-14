@@ -1,4 +1,4 @@
-from app.models._user_ import User
+from app.models.user import User
 from marshmallow import validate, fields, Schema, post_load
 
 class UserSchema(Schema):
@@ -7,6 +7,7 @@ class UserSchema(Schema):
     email = fields.String(required=True, validate=validate.Email())
     password = fields.String(load_only=True)
     data = fields.Nested("UserDataSchema")
+    favorite_recipes = fields.Nested('RecipeSchema', many=True, dump_only=True)
     
     @post_load
     def make_user(self, data, **kwargs):
